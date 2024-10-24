@@ -1,0 +1,43 @@
+<div class="flex justify-content-center align-items-center min-h-screen w-full">
+  <p-card header="Formulario Recarga" class="w-10">
+    <form
+      [formGroup]="formRecarga"
+      (ngSubmit)="edit ? updateRecarga() : createRecarga()"
+      class="flex flex-column gap-2"
+    >
+      <div class="field flex flex-column gap-1">
+        <label for="operador">Operador</label>
+        <p-dropdown 
+          [options]="operadores" 
+          formControlName="operador" 
+          placeholder="Selecciona un operador"
+          optionLabel="nombre"
+          [filter]="true"
+          [showClear]="true"
+        ></p-dropdown>
+      </div>
+      <div class="field flex flex-column gap-1">
+        <label for="cantidad">Cantidad Minutos/Datos</label>
+        <p-inputNumber inputId="cantidad" formControlName="cantidad"></p-inputNumber>
+      </div>
+      <div class="field flex flex-column gap-1">
+        <label for="valor">Valor</label>
+        <p-inputNumber inputId="valor" formControlName="valor"></p-inputNumber>
+      </div>
+      <div class="field flex flex-column gap-1">
+        <label for="vendedor">Vendedor</label>
+        <p-dropdown 
+          [options]="vendedores" 
+          formControlName="vendedor" 
+          placeholder="Selecciona un vendedor"
+          optionLabel="nombre"
+          [filter]="true"
+          [showClear]="true"
+        ></p-dropdown>
+      </div>
+      <div class="flex gap-2">
+        <p-button label="Guardar" [loading]="isSaveInProgress" type="submit"></p-button>
+      </div>
+    </form>
+  </p-card>
+</div>

@@ -1,0 +1,32 @@
+<div class="flex flex-column gap-2">
+  <a routerLink="recarga-form/new" class="p-button font-bold w-max">
+    Crear nueva Recarga
+  </a>
+  <div class="flex gap-4 flex-wrap">
+    <ng-container *ngFor="let recarga of recargas;">
+      <p-card
+        header="{{ recarga.operador.nombre }}" 
+        subheader="{{ recarga.valor }}$"
+        [style]="{ width: '360px' }"
+      >
+        <ng-template pTemplate="header"></ng-template>
+        <p>Vendedor: {{ recarga.vendedor.nombre }}</p>
+        <p>Precio: {{ recarga.valor }}$</p>
+        <p>Cantidad: {{ recarga.cantidad }}</p>
+        <p>Fecha de Venta: {{ recarga.fechaVenta | date:'short' }}</p>
+        <ng-template pTemplate="footer">
+          <div class="flex gap-1 mt-1">
+            <p-button
+              (onClick)="deleterecarga(recarga.id)"
+              label="Borrar"
+              severity="secondary"
+            ></p-button>
+            <a routerLink="recarga-form/{{ recarga.id }}" class="p-button font-bold">
+              Editar
+            </a>
+          </div>
+        </ng-template>
+      </p-card>
+    </ng-container>
+  </div>
+</div>

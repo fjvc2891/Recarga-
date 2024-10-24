@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+dist/
+
+# Java
+target/
+*.log
+.classpath
+.project
+.settings/
+
+# IDEs
+.vscode/
+.idea/
